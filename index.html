@@ -1,1 +1,37 @@
-
+<head>
+    <meta charset="UTF-8">
+    <title>execute converter</title>
+</head>
+<body>
+    <p>test</p>
+    <input type="file" name="nbtFile" onchange="buttonClick(this);">
+    <script>
+        import * as nbt from 'prismarine-nbt';
+        
+        function buttonClick(file){
+            const input = document.getElementById('nbtFile');
+            const reader = new FileReader();
+            reader.addEventListener('loader',()=>load(reader));
+            reader.readAsArrayBuffer(input.files[0]);
+        }
+        async function loadStructure(reader) {
+            let value;
+            try {
+                const { parsed } = await  nbt.parse(Buffer.from(reader.result));
+                value = JSON.stringify(parsed, null, 2);
+            } catch(e) {}
+            if(!value){
+                let stru;
+                try{
+                    stru = nbt.writeUncompressed(JSON.parse(value),'little');
+                }catch(e){
+                    return;
+                }
+                const downloader = document.createElement('a');
+                downloader.href = window.URL.createObjectURL(new Blob([stru]));
+                downloader.download = document.getElementById('nbtFile').files[0].name;
+                downloader.click();
+            }
+        }
+    </script>
+</body>
