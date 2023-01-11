@@ -3,18 +3,19 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p>test2</p>
-    <input type="file" id="nbtFile" onchange="buttonClick(this);">
+    <p id="tester">test3</p>
+    <input type="file" id="nbtFile" onchange="buttonClick();">
     <script>
         import * as nbt from 'prismarine-nbt';
         
-        function buttonClick(file){
+        function buttonClick(){
             const input = document.getElementById('nbtFile');
             const reader = new FileReader();
             reader.addEventListener('loader',()=>load(reader));
             reader.readAsArrayBuffer(input.files[0]);
         }
         async function loadStructure(reader) {
+            document.getElementById('tester').value = "loaded";
             let value;
             try {
                 const { parsed } = await  nbt.parse(Buffer.from(reader.result));
