@@ -1,0 +1,8 @@
+{
+    "name": "nbttester",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "prismarine-nbt": "^2.2.1"
+    }
+}
