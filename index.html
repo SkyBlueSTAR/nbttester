@@ -3,10 +3,10 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p id="tester">test3</p>
-    <input type="file" id="nbtFile" onchange="buttonClick();">
+    <p id="tester">test4</p>
+    <input type="file" id="nbtFile">
     <script>
-        import * as nbt from 'prismarine-nbt';
+        const nbt = require('prismarine-nbt');
         
         function buttonClick(){
             const input = document.getElementById('nbtFile');
