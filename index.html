@@ -9,13 +9,10 @@
     <script src="./pnbt.js"></script>
     <script>
         const nbt = require('prismarine-nbt');
-        
-        function buttonClick(){
-            const input = document.getElementById('nbtFile');
-            const reader = new FileReader();
-            reader.addEventListener('loader',()=>load(reader));
-            reader.readAsArrayBuffer(input.files[0]);
-        }
+        const input = document.getElementById('nbtFile');
+        const reader = new FileReader();
+        reader.addEventListener('loader',()=>load(reader));
+        reader.readAsArrayBuffer(input.files[0]);
         async function loadStructure(reader) {
             document.getElementById('tester').value = "loaded";
             let value;
