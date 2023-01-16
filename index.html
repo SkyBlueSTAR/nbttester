@@ -11,13 +11,13 @@
         const nbt = require('prismarine-nbt');
         const input = document.getElementById('nbtFile');
         const reader = new FileReader();
-        reader.addEventListener('loader',()=>load(reader));
+        reader.addEventListener('loader',()=>loadStructure(reader));
         async function loadStructure(reader) {
             reader.readAsArrayBuffer(input.files[0]);
             document.getElementById('tester').value = "loaded";
             let value;
             try {
-                const { parsed } = await  nbt.parse(Buffer.from(reader.result));
+                const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 value = JSON.stringify(parsed, null, 2);
             } catch(e) {}
             if(!value){
