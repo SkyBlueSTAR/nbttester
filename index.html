@@ -12,8 +12,8 @@
         const input = document.getElementById('nbtFile');
         const reader = new FileReader();
         reader.addEventListener('loader',()=>load(reader));
-        reader.readAsArrayBuffer(input.files[0]);
         async function loadStructure(reader) {
+            reader.readAsArrayBuffer(input.files[0]);
             document.getElementById('tester').value = "loaded";
             let value;
             try {
