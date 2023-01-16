@@ -3,7 +3,7 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p id="tester">test0</p>
+    <p id="tester">test1</p>
     <label for="nbtfile">file:</label>
     <input type="file" name="nbtfile" id="nbtFile" />
     <script src="./pnbt.js"></script>
@@ -12,8 +12,8 @@
         const input = document.getElementById('nbtFile');
         const reader = new FileReader();
         reader.addEventListener('loader',()=>loadStructure(reader));
+        reader.readAsArrayBuffer(input.files[0]);
         async function loadStructure(reader) {
-            reader.readAsArrayBuffer(input.files[0]);
             document.getElementById('tester').value = "loaded";
             let value;
             try {
