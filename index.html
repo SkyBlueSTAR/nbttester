@@ -3,7 +3,7 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p id="tester">test9</p>
+    <p id="tester">wins</p>
     <label for="nbtfile">file:</label>
     <input type="file" name="nbtfile" id="nbtFile" />
     <script src="./pnbt.js"></script>
@@ -31,13 +31,10 @@
             } catch(e) {
                 console.log(e);
             }
-            console.log(value);
             if(value !== ""){
-                console.log("test4");
                 let stru;
                 try{
                     stru = nbt.writeUncompressed(JSON.parse(value),'little');
-                    console.log("test5");
                 }catch(e){
                     return;
                 }
@@ -45,8 +42,6 @@
                 downloader.href = window.URL.createObjectURL(new Blob([stru]));
                 downloader.download = document.getElementById('nbtFile').files[0].name;
                 downloader.click();
-                
-                console.log("test6");
             }
         }
     </script>
