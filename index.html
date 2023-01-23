@@ -9,6 +9,7 @@
     <script src="./pnbt.js"></script>
     <script>
         const nbt = require('prismarine-nbt');
+        const { Buffer } = require('buffer')
         window.addEventListener('load',()=>{
             const input = document.getElementById('nbtFile');
             input.addEventListener('change',ev=>{
