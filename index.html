@@ -3,7 +3,7 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p id="tester">test6</p>
+    <p id="tester">test7</p>
     <label for="nbtfile">file:</label>
     <input type="file" name="nbtfile" id="nbtFile" />
     <script src="./pnbt.js"></script>
@@ -30,12 +30,12 @@
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 value = JSON.stringify(parsed, null, 2);
-                console.log("test3");
+                console.log(value);
             } catch(e) {
                 console.log(e);
             }
             if(!value){
-                    console.log("test4");
+                console.log("test4");
                 let stru;
                 try{
                     stru = nbt.writeUncompressed(JSON.parse(value),'little');
