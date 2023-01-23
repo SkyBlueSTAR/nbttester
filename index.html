@@ -24,7 +24,7 @@
         
         async function loadStructure(reader) {
             document.getElementById('tester').value = "loaded";
-            let value;
+            let value = "";
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 value = JSON.stringify(parsed, null, 2);
@@ -32,7 +32,7 @@
                 console.log(e);
             }
             console.log(value);
-            if(!value){
+            if(value.equals("")){
                 console.log("test4");
                 let stru;
                 try{
