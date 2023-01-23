@@ -3,16 +3,24 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p id="tester">test1</p>
+    <p id="tester">test2</p>
     <label for="nbtfile">file:</label>
     <input type="file" name="nbtfile" id="nbtFile" />
     <script src="./pnbt.js"></script>
     <script>
         const nbt = require('prismarine-nbt');
-        const input = document.getElementById('nbtFile');
-        const reader = new FileReader();
-        reader.addEventListener('loader',()=>loadStructure(reader));
-        reader.onload(()=>{this,reader.readAsArrayBuffer(input.files[0]);})
+        window.addEventListener('load',()=>{
+            const input = document.getElementById('nbtFile');
+            input.addEventListener('change',ev=>{
+                inputFile = ev.target;
+                const reader = new FileReader();
+                reader.onload(this,()=>{
+                    reader.readAsArrayBuffer(input.files[0]);
+                    loadStructure(reader);
+                });
+            })
+        })
+        
         async function loadStructure(reader) {
             document.getElementById('tester').value = "loaded";
             let value;
