@@ -30,13 +30,16 @@
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 value = JSON.stringify(parsed, null, 2);
+                console.log("test3");
             } catch(e) {
                 console.log(e);
             }
             if(!value){
+                    console.log("test4");
                 let stru;
                 try{
                     stru = nbt.writeUncompressed(JSON.parse(value),'little');
+                    console.log("test5");
                 }catch(e){
                     return;
                 }
@@ -44,6 +47,8 @@
                 downloader.href = window.URL.createObjectURL(new Blob([stru]));
                 downloader.download = document.getElementById('nbtFile').files[0].name;
                 downloader.click();
+                
+                console.log("test6");
             }
         }
     </script>
