@@ -17,23 +17,21 @@
                 const reader = new FileReader();
                 reader.onload=()=>{
                     loadStructure(reader);
-                    console.log("test");
                 };
                 reader.readAsArrayBuffer(input.files[0]);
             })
         })
         
         async function loadStructure(reader) {
-            console.log("test2")
             document.getElementById('tester').value = "loaded";
             let value;
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 value = JSON.stringify(parsed, null, 2);
-                console.log(value);
             } catch(e) {
                 console.log(e);
             }
+            console.log(value);
             if(!value){
                 console.log("test4");
                 let stru;
