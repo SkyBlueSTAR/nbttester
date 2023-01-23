@@ -15,10 +15,10 @@
                 inputFile = ev.target;
                 const reader = new FileReader();
                 reader.onload=()=>{
-                    reader.readAsArrayBuffer(input.files[0]);
                     loadStructure(reader);
                     console.log("test");
                 };
+                reader.readAsArrayBuffer(input.files[0]);
             })
         })
         
