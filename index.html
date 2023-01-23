@@ -9,7 +9,7 @@
     <script src="./pnbt.js"></script>
     <script>
         const nbt = require('prismarine-nbt');
-        const { Buffer } = require('buffer')
+        const { Buffer } = require('buffer');
         window.addEventListener('load',()=>{
             const input = document.getElementById('nbtFile');
             input.addEventListener('change',ev=>{
@@ -29,7 +29,9 @@
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 value = JSON.stringify(parsed, null, 2);
-            } catch(e) {}
+            } catch(e) {
+                console.log(e);
+            }
             if(!value){
                 let stru;
                 try{
