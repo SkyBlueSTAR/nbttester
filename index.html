@@ -3,7 +3,7 @@
     <title>execute converter</title>
 </head>
 <body>
-    <p id="tester">wins</p>
+    <p>wins</p>
     <label for="nbtfile">file:</label>
     <input type="file" name="nbtfile" id="nbtFile" />
     <script src="./pnbt.js"></script>
@@ -23,7 +23,6 @@
         })
         
         async function loadStructure(reader) {
-            document.getElementById('tester').value = "loaded";
             let value = "";
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
