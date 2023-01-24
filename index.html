@@ -30,7 +30,9 @@
                     try{
                         obj.value.block_entity_data.value.Version = 25;
                         console.log("test");
-                    } catch(e){}
+                    } catch(e){
+                        console.log(e);
+                    }
                 }
                 value = JSON.stringify(parsed, null, 2);
             } catch(e) {
