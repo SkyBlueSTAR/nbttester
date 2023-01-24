@@ -28,7 +28,7 @@
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 for(let obj of Object.keys(parsed.value.structure.value.palette.value.default.value.block_position_data.value)){
                     try{
-                        obj.value.block_entity_data.value.Version = 25;
+                        parsed.value.structure.value.palette.value.default.value.block_position_data.value[obj].value.block_entity_data.value.Version = 25;
                         console.log("test");
                     } catch(e){
                         console.log(e);
