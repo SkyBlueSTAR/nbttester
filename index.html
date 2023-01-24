@@ -27,12 +27,10 @@
             try {
                 const { parsed } = await nbt.parse(Buffer.from(reader.result));
                 for(let obj of Object.keys(parsed.value.structure.value.palette.value.default.value.block_position_data.value)){
-                    if(!typeof obj.value.block_entity_data=== 'undefined'){
-                        if(!typeof obj.value.block_entity_data.value.Command === 'undefined'){
-                            obj.value.block_entity_data.value.Version = 25;
-                            console.log("test");
-                        }
-                    }
+                    try{
+                        obj.value.block_entity_data.value.Version = 25;
+                        console.log("test");
+                    } catch(e){}
                 }
                 value = JSON.stringify(parsed, null, 2);
             } catch(e) {
